@@ -1,212 +1,58 @@
-# Frappe Better Attach Control
+<div align="center">
+    <img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Better Attach Control Logo"/>
+    <h2 align="center">Welcome to Better Attach Control</h2>
+    <p align="center">
+    Supercharge your applications with customizable attachment control options for an enhanced user experience.
+    <br />
+    <a href="https://grow.empress.eco/">Explore the Docs</a>
+    ·
+    <a href="https://github.com/empress-eco/better_attach_control/issues/new?assignees=kid1194&labels=bug&template=bug_report.md&title=%5BBUG%5D">Report Bug</a>
+    ·
+    <a href="https://github.com/empress-eco/better_attach_control/issues/new?assignees=kid1194&labels=enhancement&template=feature_request.md&title=%5BFeature%5D">Request Feature</a>
+    </p>
+</div>
 
-A small plugin for Frappe that adds customization to the attach control.
-It supports RTL layout and dark mode out of the box.
+## About The Project
 
-⚠️ **v2 is still in BETA stage** ⚠️
+Better Attach Control is a robust plugin designed to give developers unparalleled control over the attachment function in their applications. Unleash the power of customization, be it for RTL (Right-To-Left) layout or dark mode compatibility, and deliver impressive applications to your users. A beta version is also available for testing to keep you ahead of the curve.
 
----
+## Getting Started
 
-<p align="center">
-    <img src="https://github.com/kid1194/frappe-better-attach-control/blob/main/images/screenshot_1.png?raw=true" alt="Better Attach Control"/>
-</p>
-<p align="center">
-    <img src="https://github.com/kid1194/frappe-better-attach-control/blob/main/images/screenshot_2.png?raw=true" alt="Better Attach Control"/>
-</p>
-<p align="center">
-    <img src="https://github.com/kid1194/frappe-better-attach-control/blob/main/images/screenshot_3.png?raw=true" alt="Better Attach Control"/>
-</p>
+### Prerequisites
+Ensure that you have the Framework version v12.0.0 or later installed.
 
----
+### Installation
+Setting up your environment is easy. Follow these step-by-step instructions:
 
-### Status
-- **Desk**: 🔵 Testing
-- **Web Form**: 🔵 Testing
-
----
-
-### Special Thanks 
-**A simple display of gratitude and appreciation to those who provided helped and kind support.**
-#### Version 2
-- [MohsinAli](https://github.com/mohsinalimat) (Testing - Debugging - Bug Fixing)
-- [Robert C](https://github.com/robert1112) (Testing - Debugging)
-#### Version 1
-- [CA. B.C.Chechani](https://github.com/chechani) (Testing - Debugging)
-
----
-
-### Table of Contents
-- [Requirements](#requirements)
-- [Setup](#setup)
-  - [Install](#install)
-  - [Update](#update)
-  - [Uninstall](#uninstall)
-- [Usage](#usage)
-- [Available Field Options](#available-field-options)
-- [Available JavaScript Methods](#available-javascript-methods)
-- [Supported Fields](#supported-fields)
-- [Issues](#issues)
-- [License](#license)
-
----
-
-### Requirements
-- Frappe >= v12.0.0
-
----
-
-### Setup
-
-⚠️ **Do not forget to replace [sitename] with the name of your site in all commands.** ⚠️
-
-#### Install
-1. Go to bench directory
-
-```
-cd ~/frappe-bench
+```sh
+# Navigate to the bench directory
+cd ~/Empress-bench
+# Clone the plugin from Github (Only required once)
+git clone https://github.com/empress-eco/better_attach_control.git
+# Build the plugin (Only required once)
+bench build --app Empress_better_attach_control
+# Install the plugin on a specific site
+bench --site [YourSiteName] install-app Empress_better_attach_control
 ```
 
-2. Get plugin from Github
+*Note: Replace `[YourSiteName]` with the name of your site in the command.*
 
-*(Required only once)*
+## Usage
+For a comprehensive guide on how to use Better Attach Control, [click here](https://grow.empress.eco/).
 
-```
-bench get-app https://github.com/kid1194/frappe-better-attach-control
-```
+## Contributing
+We welcome contributions! If you'd like to contribute, here's how you can:
 
-3. Build plugin
+- Fork the Project
+- Create your Feature Branch (`git checkout -b feature/YourFeature`)
+- Commit your Changes (`git commit -m 'Add YourFeature'`)
+- Push to the Branch (`git push origin feature/YourFeature`)
+- Open a Pull Request
 
-*(Required only once)*
-
-```
-bench build --app frappe_better_attach_control
-```
-
-4. Install plugin on a specific site
-
-```
-bench --site [sitename] install-app frappe_better_attach_control
-```
-
-5. Check the [usage](#usage) section below
-
-#### Update
-1. Go to app directory
-
-```
-cd ~/frappe-bench/apps/frappe_better_attach_control
-```
-
-2. Get updates from Github
-
-```
-git pull
-```
-
-3. Go to bench directory
-
-```
-cd ~/frappe-bench
-```
-
-4. Build plugin
-
-```
-bench build --app frappe_better_attach_control
-```
-
-5. Update a specific site
-
-```
-bench --site [sitename] migrate
-```
-
-6. (Optional) Restart bench
-
-```
-bench restart
-```
-
-#### Uninstall
-1. Go to bench directory
-
-```
-cd ~/frappe-bench
-```
-
-2. Uninstall plugin from a specific site
-
-```
-bench --site [sitename] uninstall-app frappe_better_attach_control
-```
-
-3. Remove plugin from bench
-
-```
-bench remove-app frappe_better_attach_control
-```
-
-4. (Optional) Restart bench
-
-```
-bench restart
-```
-
----
-
-### Usage
-1. Go to Customization > Customize Form
-2. Enter the form doctype (Ex: 'User')
-3. Scroll down to the fields area
-4. Create an **Attach** or **Attach Image** field or edit an existing custom field
-5. Inside the field's **Options** property, add the options you want as a JSON string.
-
-    Ex: ```{"allowed_file_types": [".jpg", ".png", ".gif"]}```
-
-##### ⚠️ Remember
-You can't modify the original fields of a doctype, so create a new field or clone and modify the entire doctype.
-
----
-
-### Available Field Options
-| Option | Description |
-| :--- | :--- |
-| **dialog_title** 🔴 | Upload dialog title to be displayed ️(🔶Frappe >= v14.0.0).<br /><br />🔹Example: **"Upload Images"**<br />🔹Default: **"Upload"** |
-| **upload_notes** | Upload text to be displayed.<br /><br />🔹Example: **"Only images and videos, with maximum size of 2MB, are allowed to be uploaded"**<br />🔹Default: **""** |
-| **disable_file_browser** 🔴 | Disable file browser uploads.<br /><br />⚠️ *(File browser is always disabled in Web Form)*<br /><br />🔹Default: **false** |
-| **allow_multiple** | Allow multiple uploads.<br /><br />⚠️ *(Field value is a JSON array of files url)*<br /><br />🔹Default: **false** |
-| **max_file_size** | Maximum file size (in bytes) that is allowed to be uploaded.<br /><br />🔹Example: **2048** for **2KB**<br />🔹Default: **Value of maximum file size in Frappe's settings** |
-| **allowed_file_types** | Array of allowed file types (mimes) or extensions to upload. Prefix escaped RegExp string types with **$**.<br /><br />⚠️ *(File extensions must have a leading dot ".")*<br />⚠️ *(RegExp string types will not be used to in HTML accept attribute)*<br /><br />🔹Example: **["image/*", "video/*", ".pdf", ".doc", "$audio\/([a-z]+)"]**<br />🔹Default: **null** or **["image/*"]** |
-| **max_number_of_files** | Maximum number of files allowed to be uploaded if multiple upload is allowed.<br /><br />⚠️ *(Bypassing the maximum attachments of doctype might not work)*<br /><br />🔹Example: **4**<br />🔹Default: **Value of maximum attachments set for the doctype** |
-| **crop_image_aspect_ratio** | Crop aspect ratio for images (🔶Frappe >= v14.0.0).<br /><br />🔹Example: **1** or **16/9** or **4/3**<br />🔹Default: **null** |
-| **as_public** | Force uploads to be saved in public folder by default.<br /><br />🔹Default: **false** |
-| **allowed_filename** 🔴 | Only allow files that match a specific file name to be uploaded.<br /><br />🔹Example: (String)**"picture.png"** or (RegExp String)**"/picture\-([0-9]+)\.png/"**<br />🔹Default: **null** |
-| **allow_reload** | Allow reloading attachments (🔶Frappe >= v13.0.0).<br /><br />🔶 Affect the visibility of the reload button.🔶<br /><br />🔹Default: **true** |
-| **allow_remove** | Allow removing and clearing attachments.<br /><br />🔶 Affect the visibility of the remove and clear buttons.🔶<br /><br />🔹Default: **true** |
-
----
-
-### Available JavaScript Methods
-| Method | Description |
-| :--- | :--- |
-| **enable_reload()** | Allow reloading attachments and show the reload button (🔶Frappe >= v13.0.0). |
-| **disable_reload()** | Deny reloading attachments and hide reload button (🔶Frappe >= v13.0.0). |
-| **enable_remove()** | Allow removing and clearing attachments and show the clear and remove buttons. |
-| **disable_remove()** | Deny removing and clearing attachments and hide the clear and remove buttons. |
-| **set_options(JSON)** | Set or change the plugin current options.  |
-
----
-
-### Supported Fields
-- Attach
-- Attach Image
-
----
-
-### Issues
-If you find bug in the plugin, please create a [bug report](https://github.com/kid1194/frappe-better-attach-control/issues/new?assignees=kid1194&labels=bug&template=bug_report.md&title=%5BBUG%5D) and let us know about it.
-
----
+## License and Acknowledgements
 
 ### License
-This repository has been released under the [MIT License](https://github.com/kid1194/frappe-better-attach-control/blob/main/LICENSE).
+This project is licensed under the MIT License. All contributions are also licensed under the MIT License.
+
+### Acknowledgements
+Special thanks to the Empress Community for providing the fundamental tools that make this project possible. We deeply appreciate your innovative work and continued support. We also express our gratitude to all those who have contributed to the development and testing of Better Attach Control. Special thanks to [MohsinAli](https://github.com/mohsinalimat), [Robert C](https://github.com/robert1112), and [CA. B.C.Chechani](https://github.com/chechani). Your support and assistance have been invaluable.
